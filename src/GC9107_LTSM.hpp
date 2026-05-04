@@ -95,15 +95,14 @@ private:
 	// SPI
 	bool _resetPinOn = true; /**< reset pin on module ? true:hw rst pin, false:sw rt*/
 	// Screen Size
-	uint16_t _widthStartTFT = 128;	/**< never change after first init */
-	uint16_t _heightStartTFT = 160; /**< never change after first init */
-	// Physical VRAM limits of the GC9107 controller Model A
-	uint16_t _RAM_WIDTH  = 128;
-	uint16_t _RAM_HEIGHT = 160;
-	uint8_t _colOffset = 0;   // Portrait col (X) dead-RAM offset – user supplied
-	uint8_t _rowOffset = 0;   // Portrait row (Y) dead-RAM offset – user supplied
-	uint8_t _xstart = 0;      // Applied offset for current rotation (X axis)
-	uint8_t _ystart = 0;      // Applied offset for current rotation (Y axis)
+	uint16_t _widthStartTFT = 128;	/**< Display Width,  never change after first init */
+	uint16_t _heightStartTFT = 160; /**< Display Height, never change after first init */
+	uint16_t _RAM_WIDTH; /**< Physical VRAM width limit of the GC9107 controller */
+	uint16_t _RAM_HEIGHT; /**< Physical VRAM height limit of the GC9107 controller */
+	uint8_t _colOffset = 0;   /**< Portrait col (X) dead-RAM offset – user supplied */
+	uint8_t _rowOffset = 0;   /**< Portrait row (Y) dead-RAM offset – user supplied */
+	uint8_t _xstart = 0;      /**< Applied offset for current rotation (X axis) */
+	uint8_t _ystart = 0;      /**< Applied offset for current rotation (Y axis) */
 
 	// GC9107 registers + Commands
 	static constexpr uint8_t GC9107_SLPIN            = 0x10; /**< Enter Sleep Mode */

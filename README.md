@@ -34,7 +34,7 @@ There are example files included.
 | HELLO | Hello world | Portrait 0 degrees rotation |
 | HELLO_90 | Hello world | Landscape 90 degrees rotation |
 | FRAME_BUFFER | Testing frame buffer mode | dislib16_ADVANCED_SCREEN_BUFFER_ENABLE must be enabled, user option 2 |
-| BITMAP | bitmaps tests | Bitmap data is stored in arrays on PICO |
+| BITMAP | bitmaps tests | Bitmap data is stored in arrays |
 | TEXT_GRAPHIC_FUNC | Text + Graphics + Functions | Some graphics test require dislib16_ADVANCED_GRAPHICS_ENABLE to be enabled, user option 1 |
 
 ## Software
@@ -68,8 +68,8 @@ and colour order (RGB or BGR)
 There are two memory base variants called "Display data GRAM mapping" in datasheet
 Which I refer to as model A and B, These require different init routines.
 
-A. 128x128 mapping (MEMORY_BASE_GM_128x128)
-B. 128x160 mapping (MEMORY_BASE_GM_128x160)
+1. 128x128 mapping (MEMORY_BASE_GM_128x128)
+2. 128x160 mapping (MEMORY_BASE_GM_128x160)
 
 #### USER OPTION 2 Screen offsets
 
@@ -99,8 +99,8 @@ Connections as setup in ino examples files for ESP32:
 | --- | --- | --- |
 | GND Ground | GND | GND |
 | VCC | 3.3 VCC | 3.3 VCC |
-| SCL Clock | 18 | 12 |
-| SDA Data in -> MOSI | 23 | 13 |
+| SCL Clock | 18 | 27 |
+| SDA Data in -> MOSI | 23 | 26 |
 | RST Reset | 4 | 4 |
 | DC Data or command | 5 | 5 |
 | CS Chip select | 15 | 15 |
