@@ -24,10 +24,6 @@
 #pragma message("gll: dislib16_ADVANCED_SCREEN_BUFFER_ENABLE is defined. This example is not for that mode")
 #endif
 
-// Screen Values Setup
-// Offsets for portrait and landscape rotations, see readme for values calculation
-#define X_OFFSET 0 // Offset for portrait  rotation  0 and 180
-#define Y_OFFSET 34 // Offset for landscape rotation 90 and 270(not used in this example)
 // Init display class object
 GC9107_LTSM myTFT;
 bool bhardwareSPI = true; // true for Hardware SPI , false for software SPI

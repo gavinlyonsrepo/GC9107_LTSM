@@ -66,24 +66,24 @@ User can adjust display size (width & height) in pixels, memory base
 and colour order (RGB or BGR)
 
 There are two memory base variants called "Display data GRAM mapping" in datasheet
-Which I refer to as model A and B, These require different init routines.
+Which I refer to as memory base A and B, These require different init routines.
 
-1. 128x128 mapping (MEMORY_BASE_GM_128x128)
-2. 128x160 mapping (MEMORY_BASE_GM_128x160)
+1. 128x128 mapping (MEMORY_BASE_GM_128x128) A
+2. 128x160 mapping (MEMORY_BASE_GM_128x160) B
 
 #### USER OPTION 2 Screen offsets
 
-In addition here are number of different truncated displays on market ar type displays: Model A 128x115, Model B 96x160 and Model B 60x160. The user should treat these truncated displays as if they are 128x128 or 128x160 in terms of memory base and screen size setup, and just not use the pixels outside the visible area. these truncated displays require an offset.
+In addition here are number of different truncated displays on market: These truncated displays require an offset. 
 Known displays types on market with GC9107 controller.
 The offsets for untested devices are estimates and may be incorrect.
 
-| Display Type | Memory Base | VRAM size setup (WbyH) | Offsets portrait rotation | Tested |
+| Display Type | Memory Base | VRAM size setup (WbyH) | Offsets rotation | Tested |
 | --- | --- | --- | --- | --- |
-| A 128x128 Square | MEMORY_BASE_GM_128x128 | 128 , 128 | 0,0 | No device |
-| A 128x115 Round Truncated | MEMORY_BASE_GM_128x128 | 128 , 128 | 7,0 | No device |
-| B 60x160 Truncated | MEMORY_BASE_GM_128x160 | 128 , 160 | 34,0 | YES |
-| B 96x160 Truncated | MEMORY_BASE_GM_128x160 | 128 , 160 | 16,0 | No device |
-| B 128x160 Full | MEMORY_BASE_GM_128x160 | 128 , 160 | 0,0 | No device |
+| 128x128 Square | MEMORY_BASE_GM_128x128 A | 128 , 128 | 0,0 | No device |
+| 128x115 Round Truncated | MEMORY_BASE_GM_128x128 A | 128 , 128 | 7,0 | No device |
+| 60x160 Truncated | MEMORY_BASE_GM_128x160 B | 128 , 160 | 34,0 | YES |
+| 96x160 Truncated | MEMORY_BASE_GM_128x160 B | 128 , 160 | 16,0 | No device |
+| 128x160 Full | MEMORY_BASE_GM_128x160 B | 128 , 160 | 0,0 | No device |
 
 Example Offset calculation for a truncated display(60x160) is as follows.
 
