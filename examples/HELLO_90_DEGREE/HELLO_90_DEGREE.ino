@@ -3,7 +3,7 @@
 	@author  Gavin Lyons
 	@brief   Example ino file for gc9107 driver. Test Hello World
 	@details Setup for 60x160 display. 90 degrees landscape rotation.
-	@note    See USER OPTIONS 0-2 in SETUP function
+	@note    See USER OPTIONS in SETUP function
 	@test
 		-# Test 102 Print out Hello world at 90 degree rotation
 */

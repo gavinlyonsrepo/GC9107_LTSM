@@ -1,7 +1,7 @@
 /*!
 	@file   GC9107_LTSM.cpp
 	@author Gavin Lyons
-	@brief  Source file. Contains driver methods for gc9107 display 
+	@brief  Source file. Contains driver methods for gc9107 display driver
 */
 
 #include "GC9107_LTSM.hpp"
@@ -55,7 +55,7 @@ void GC9107_LTSM ::TFTResetPIN() {
 }
 
 /*!
-	@brief sets up TFT GPIO
+	@brief sets up TFT GPIO for software SPI
 	@param CommDelay SW SPI GPIO delay
 	@param rst reset GPIO, optional pass -1 to disable, see note
 	@param dc data or command GPIO.
@@ -83,13 +83,11 @@ void GC9107_LTSM::TFTsetupGPIO_SPI(uint16_t CommDelay, int8_t rst, int8_t dc, in
 }
 
 /*!
-	@brief sets up TFT GPIO
+	@brief sets up TFT GPIO for hardware SPI
 	@param speed_hz SPI baudrate in hz 
 	@param rst reset GPIO, optional pass -1 to disable, see note
 	@param dc data or command GPIO.
 	@param cs chip select GPIO 
-	@param sclk Data clock GPIO  
-	@param din Data to TFT GPIO 
 	@details if -1 is passed for reset pin, software reset is used, if LCD has optional reset pin
 			Overloaded one of two this one if for hardware  SPI
 */
@@ -160,29 +158,29 @@ void GC9107_LTSM::TFTsetRotation(display_rotate_e mode) {
 		case Degrees_0 :
 			_width =_widthStartTFT;
 			_height = _heightStartTFT;
-			_xstart = _colOffset;
-			_ystart = _rowOffset;
+			_XStart = _colOffset;
+			_YStart = _rowOffset;
 			break;
 		case Degrees_90:
 			madctl |= (MADCTL_FLAGS_t::ML | MADCTL_FLAGS_t::MV | MADCTL_FLAGS_t::MX  );
 			_width  =_heightStartTFT;
 			_height = _widthStartTFT;
-			_xstart = _rowOffset;
-			_ystart = _colOffset;
+			_XStart = _rowOffset;
+			_YStart = _colOffset;
 			break;
 		case Degrees_180:  
 			madctl |= (MADCTL_FLAGS_t::MY | MADCTL_FLAGS_t::MX );
 			_width  = _widthStartTFT;
 			_height = _heightStartTFT;
-			_xstart = _RAM_WIDTH  - _widthStartTFT  - _colOffset;
-			_ystart = _RAM_HEIGHT - _heightStartTFT - _rowOffset;
+			_XStart = _RAM_WIDTH  - _widthStartTFT  - _colOffset;
+			_YStart = _RAM_HEIGHT - _heightStartTFT - _rowOffset;
 			break;
 		case Degrees_270:  
 			madctl |= (MADCTL_FLAGS_t::MY |MADCTL_FLAGS_t::MV );
-			_xstart = _RAM_HEIGHT - _heightStartTFT - _rowOffset;
-			_ystart = _RAM_WIDTH  - _widthStartTFT  - _colOffset;
-            _width  = _heightStartTFT;
-            _height = _widthStartTFT;
+			_XStart = _RAM_HEIGHT - _heightStartTFT - _rowOffset;
+			_YStart = _RAM_WIDTH  - _widthStartTFT  - _colOffset;
+			_width  = _heightStartTFT;
+			_height = _widthStartTFT;
 			break;
 	}
 	writeCommand(GC9107_MADCTL);
@@ -259,10 +257,10 @@ void GC9107_LTSM::setAddrWindow(uint16_t x1, uint16_t y1, uint16_t w, uint16_t h
 		h = y1;
 	}
 	// Translate panel coordinates → VRAM coordinates
-	x1 += _xstart;
-	w  += _xstart;
-	y1 += _ystart;
-	h  += _ystart;
+	x1 += _XStart;
+	w  += _XStart;
+	y1 += _YStart;
+	h  += _YStart;
 
 	uint8_t x1Higher = (x1 >> 8);
 	uint8_t x1Lower  = (x1 & 0xFF);

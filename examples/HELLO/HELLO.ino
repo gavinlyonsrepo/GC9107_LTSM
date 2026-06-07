@@ -63,6 +63,7 @@ void setup(void)
 	myTFT.TFTsetPanelOffset(X_Offset, Y_Offset);
 	// ***
 	myTFT.TFTGC9107Initialize();
+	myTFT.TFTsetRotation(myTFT.Degrees_0);
 }
 
 void loop(void)

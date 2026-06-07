@@ -36,6 +36,9 @@ There are example files included.
 | FRAME_BUFFER | Testing frame buffer mode | dislib16_ADVANCED_SCREEN_BUFFER_ENABLE must be enabled, user option 2 |
 | BITMAP | bitmaps tests | Bitmap data is stored in arrays |
 | TEXT_GRAPHIC_FUNC | Text + Graphics + Functions | Some graphics test require dislib16_ADVANCED_GRAPHICS_ENABLE to be enabled, user option 1 |
+| DEMO_ONE | System Monitor Demo | - |
+| DEMO_TWO | EMV Monitor Demo | - |
+| DEMO_THREE | Flight Simulator Demo | - |
 
 ## Software
 
@@ -45,7 +48,8 @@ In the ino example files. There are sections in "setup()" function
 where user can make adjustments to select for SPI type used, PCB type used and screen size.
 
 0. USER OPTION 0 SPI_SPEED, GPIO + TYPE
-1. USER OPTION 2 SCREEN SECTION
+1. USER OPTION 1 Screen size + options
+2. USER OPTION 2 Screen offsets
 
 #### USER OPTION 0 SPI SPEED + GPIO + TYPE
 
@@ -73,19 +77,19 @@ Which I refer to as memory base A and B, These require different init routines.
 
 #### USER OPTION 2 Screen offsets
 
-In addition here are number of different truncated displays on market: These truncated displays require an offset. 
+In addition here are number of different truncated displays on market: These truncated displays require an offset.
 Known displays types on market with GC9107 controller.
-The offsets for untested devices are estimates and may be incorrect.
+The offsets for truncated untested devices are untested and may be incorrect.
 
 | Display Type | Memory Base | VRAM size setup (WbyH) | Offsets rotation | Tested |
 | --- | --- | --- | --- | --- |
 | 128x128 Square | MEMORY_BASE_GM_128x128 A | 128 , 128 | 0,0 | No device |
-| 128x115 Round Truncated | MEMORY_BASE_GM_128x128 A | 128 , 128 | 7,0 | No device |
+| 128x115 Round Truncated | MEMORY_BASE_GM_128x128 A | 128 , 128 | 0,7 ? | No device |
 | 60x160 Truncated | MEMORY_BASE_GM_128x160 B | 128 , 160 | 34,0 | YES |
-| 96x160 Truncated | MEMORY_BASE_GM_128x160 B | 128 , 160 | 16,0 | No device |
+| 96x160 Truncated | MEMORY_BASE_GM_128x160 B | 128 , 160 | 16,0 ? | No device |
 | 128x160 Full | MEMORY_BASE_GM_128x160 B | 128 , 160 | 0,0 | No device |
 
-Example Offset calculation for a truncated display(60x160) is as follows.
+Example offset calculation for a truncated display(60x160) is as follows.
 
 [![ offsets ](https://github.com/gavinlyonsrepo/displaylib_16bit_PICO/blob/main/extra/image/gc91.png)](https://github.com/gavinlyonsrepo/displaylib_16bit_PICO/blob/main/extra/image/gc91.png)
 

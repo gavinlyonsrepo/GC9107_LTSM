@@ -1,7 +1,7 @@
 /*!
 	@file    GC9107_LTSM.hpp
 	@author  Gavin Lyons, LionTron Systems
-	@brief   arduino Library header file, Contains driver methods for gc9107 display
+	@brief   arduino Library header file, Contains driver methods for gc9107 display driver
 */
 
 #pragma once
@@ -97,12 +97,10 @@ private:
 	// Screen Size
 	uint16_t _widthStartTFT = 128;	/**< Display Width,  never change after first init */
 	uint16_t _heightStartTFT = 160; /**< Display Height, never change after first init */
-	uint16_t _RAM_WIDTH; /**< Physical VRAM width limit of the GC9107 controller */
-	uint16_t _RAM_HEIGHT; /**< Physical VRAM height limit of the GC9107 controller */
+	uint16_t _RAM_WIDTH  = 0; /**< Physical VRAM width limit of the GC9107 controller */
+	uint16_t _RAM_HEIGHT = 0; /**< Physical VRAM height limit of the GC9107 controller */
 	uint8_t _colOffset = 0;   /**< Portrait col (X) dead-RAM offset – user supplied */
 	uint8_t _rowOffset = 0;   /**< Portrait row (Y) dead-RAM offset – user supplied */
-	uint8_t _xstart = 0;      /**< Applied offset for current rotation (X axis) */
-	uint8_t _ystart = 0;      /**< Applied offset for current rotation (Y axis) */
 
 	// GC9107 registers + Commands
 	static constexpr uint8_t GC9107_SLPIN            = 0x10; /**< Enter Sleep Mode */

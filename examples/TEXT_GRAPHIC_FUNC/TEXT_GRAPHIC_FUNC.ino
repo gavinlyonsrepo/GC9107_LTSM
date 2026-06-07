@@ -5,7 +5,8 @@
 	@details
 					Setup for 60x160 display.
 					For graphics tests after tests 905 to work
-					dislib16_ADVANCED_GRAPHICS_ENABLE(display16_common_LTSM.hpp)
+					dislib16_ADVANCED_GRAPHICS_ENABLE
+					(in file display16_common_LTSM.hpp from graphics library display16_LTSM)
 					must be commented in.
 	@note   See USER OPTIONS in SETUP function
 
@@ -101,6 +102,7 @@ void setup(void)
 	myTFT.TFTsetPanelOffset(X_Offset, Y_Offset);
 	//***
 	myTFT.TFTGC9107Initialize();
+	myTFT.TFTsetRotation(myTFT.Degrees_0);
 }
 
 //  *** MAIN loop ***
@@ -260,7 +262,7 @@ void Test503()
 void Test701(void)
 {
 
-	Serial.println("Test 701: Print out all fonts with writeCharString");
+	Serial.println("Test 701: Print out some fonts with writeCharString");
 	char teststr1[] = "Default";
 	char teststr2[] = "GLL";
 	char teststr3[] = "Pico";
