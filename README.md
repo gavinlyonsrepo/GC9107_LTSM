@@ -5,6 +5,9 @@
 ## Table of contents
 
 * [Overview](#overview)
+* [Installation](#installation)
+* [Dependency](#dependency)
+* [Documentation](#documentation)
 * [Test](#test)
 * [Software](#software)
   * [User Options](#user-options)
@@ -22,8 +25,35 @@ The GC9107 is a 262,144-color single-chip SOC driver for a-TFT liquid crystal di
 1. Power modes, Invert, Scroll, Rotate, Bitmaps supported.
 2. Hardware & software SPI
 3. Tested on 60x160 Bar Display
+4. Arduino eco-system library.
+5. 16 ASCII fonts included, fonts can easily be removed or added.
+6. Advanced graphics class included.
+7. Advanced frame buffer mode included.
+8. Bitmaps supported: 1, 8 and 16 bit.
+9. Sprites supported.
+10. [Project url link](https://github.com/gavinlyonsrepo/GC9107_LTSM)
 
 * [DataSheet](https://www.buydisplay.com/download/ic/GC9107.pdf)
+
+## Installation
+
+The library is included in the official Arduino library manger and the optimum way to install it is using the library manager which can be opened by the *manage libraries* option in Arduino IDE.
+
+## Dependency
+
+This library requires the Arduino library 'display16_LTSM' as a dependency. display16_LTSM library contains
+the graphics, bitmaps, and font methods as well as font data and bitmap test data. Its also
+where the user sets options(debug, advanced graphics and frame buffer mode).
+When you install 'GC9107_LTSM' with Arduino IDE. It should install 'display16_LTSM' as well after
+a prompt, if it does not you have to install it same way as 'GC9107_LTSM'.
+The 'display16_LTSM' project and readme is at [URL github link.](https://github.com/gavinlyonsrepo/display16_LTSM)
+'display16_LTSM' is also written by author of this library.
+
+## Documentation
+
+Code is commented for the 'doxygen' API generation tool.
+Documents on fonts, bitmaps and graphics can be found at
+the dependency 'display16_LTSM' repository, [URL github link](https://github.com/gavinlyonsrepo/display16_LTSM)
 
 ## Test
 
