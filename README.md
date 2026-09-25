@@ -8,10 +8,13 @@
 * [Installation](#installation)
 * [Dependency](#dependency)
 * [Documentation](#documentation)
-* [Test](#test)
 * [Software](#software)
-  * [User Options](#user-options)
+  * [Dependency user options](#dependency-user-options)
+  * [Examples](#Examples)
+  * [Setup](#setup)
 * [Hardware](#hardware)
+
+---
 
 ## Overview
 
@@ -55,9 +58,26 @@ Code is commented for the 'doxygen' API generation tool.
 Documents on fonts, bitmaps and graphics can be found at
 the dependency 'display16_LTSM' repository, [URL github link](https://github.com/gavinlyonsrepo/display16_LTSM)
 
-## Test
 
-There are example files included.
+## Software
+
+### Dependency user options
+
+There are options in the dependency 'display16_LTSM' library which can be set by the user. 
+These are set in the 'display16_LTSM' library's 'display16_common_LTSM.hpp' file.
+These options are referenced in note section of example files table below.
+See dependency section of this readme for url link to display16_LTSM for more information on the options.
+The options are:
+
+| Option | Description | Default |
+| --- | --- | --- |
+| dislib16_ADVANCED_GRAPHICS_ENABLE | Enable advanced graphics functions | OFF |
+| dislib16_ADVANCED_SCREEN_BUFFER_ENABLE | Enable advanced screen buffer mode | OFF |
+| dislib16_DEBUG_MODE_ENABLE | Enable debug messages to serial console | OFF |
+
+### Examples 
+
+There are example ino files included.
 
 | Filename | Function | Note |
 | --- | --- | --- |
@@ -70,9 +90,7 @@ There are example files included.
 | DEMO_TWO | EMV Monitor Demo | - |
 | DEMO_THREE | Flight Simulator Demo | - |
 
-## Software
-
-### User Options
+### Setup
 
 In the ino example files. There are sections in "setup()" function
 where user can make adjustments to select for SPI type used, PCB type used and screen size.
